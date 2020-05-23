@@ -7,94 +7,40 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const generateHTML = require('./src/generateHtml')
 
-//README.md questions
+//Portfolio questions
 const questions = () => {
     return inquirer.prompt([
+
         {
-            type: "input",
-            name: "title",
-            message: "What is the project title?",
-            validate: titleInput => {
-                if (titleInput) {
+            type: 'input',
+            name: 'name',
+            message : 'What is the project managers name?',
+            validate: nameInput => {
+                if (nameInput) {
                   return true;
                 } else {
-                  console.log('Please enter the project title!');
+                  console.log('Please enter the project managers name!');
                   return false;
                 }
               }
         },
         {
-            type: "input",
-            name: "description",
-            message: "Please describe the project:",
-            validate: descriptionInput => {
-                if (descriptionInput) {
+            type: 'input',
+            name: 'employeeID',
+            message: 'What is the Employee ID?',
+            validate: employeeIDInput => {
+                if (employeeIDInput) {
                   return true;
                 } else {
-                  console.log('Please enter a project description!');
+                  console.log('Please enter a valid employee ID!');
                   return false;
                 }
               }
         },
         {
-            type: "input",
-            name: "install",
-            message: "If there is a installation process please write it out in code:",
-        },
-        {
-            type: "input",
-            name: "usage",
-            message: "What will this project be used for?",
-            validate: usageInput => {
-                if (usageInput) {
-                  return true;
-                } else {
-                  console.log('Please enter a project useage!');
-                  return false;
-                }
-              }
-        },
-        {
-            type: "list",
-            name: "licences",
-            message: "What licences will go along with this project:",
-            choices: [
-                "Apache",
-                "Academic",
-                "GNU",
-                "ISC",
-                "MIT",
-                "Mozilla",
-                "Open"
-            ]
-        },
-        {
-            type: "input",
-            name: "contributing",
-            message: "How should people help contribute to this project?"
-        },
-        {
-            type: "input",
-            name: "tests",
-            message: "If there are tests needed done for this project please describe them:"
-        },
-        {
-            type: "input",
-            name: "username",
-            message: "Enter your GitHub username: ",
-            validate: usernameInput => {
-                if (usernameInput) {
-                  return true;
-                } else {
-                  console.log('Please enter a Github username!');
-                  return false;
-                }
-              }
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Enter your email please:",
+            type: 'input',
+            name: 'email',
+            message: 'What is their email adress?',
             validate: emailInput => {
                 if (emailInput) {
                   return true;
@@ -103,9 +49,41 @@ const questions = () => {
                   return false;
                 }
               }
-        }
+
+        },
+        {
+            type: 'input',
+            name: 'office',
+            message: 'What is the managers office number?',
+            validate: officeInput => {
+                if (officeInput) {
+                  return true;
+                } else {
+                  console.log('Please enter a valid office number!');
+                  return false;
+                }
+            }
+        },
+        {
+            type: 'list',
+            name: 'addToTeam',
+            message: 'Would you like to add a Engineer or Intern?',
+            choices: [
+                'Engineer',
+                'Intern'
+            ]
+        },
     ]);
+    // .then(({ addToTeam }) => {
+    //     if (addToTeam === 'Engineer') {
+
+    //     } else ( 'Intern') {
+
+    //     }
+    // }
+
 } 
+
 
 
 // function to initialize program
