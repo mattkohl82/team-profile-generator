@@ -5,6 +5,7 @@ const Employee = require('./lib/Employee')
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+const generateHTML = require('./src/generateHtml')
 
 //README.md questions
 const questions = () => {
@@ -106,18 +107,19 @@ const questions = () => {
     ]);
 } 
 
+
 // function to initialize program
 const init = () => {
     console.log(`
 =================
-Create a README!!!
+Create a Team Profolio!!
 =================
 `);
 questions()
     .then(data => {
-        fs.writeFile('./dist/README.md', generateMarkdown(data), err => {
+        fs.writeFile('./dist/index.html', generateHTML(data), err => {
             if (err) throw err;
-            console.log('Your README has been created in the "dist" folder')
+            console.log('Your HTML file has been created in the "dist" folder')
         });
     })
 }
