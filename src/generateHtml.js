@@ -1,16 +1,8 @@
-// function to generate markdown for README
-const generateHTML = data => {
-    return `
+const fs = require('fs');
 
-    ${ data.name }
-    ${ data.employeeID }
-    ${ data.email }
-    ${ data.office }
 
-    
-    
-    
-    `
-  }
-  
-  module.exports = generateHTML;
+
+
+
+
+module.exports = { writeFile, generateProjects};

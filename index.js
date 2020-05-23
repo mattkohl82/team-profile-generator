@@ -1,14 +1,18 @@
 // Global Varibles
 const fs = require("fs");
 const inquirer = require("inquirer");
-const Employee = require('./lib/Employee')
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const generateHTML = require('./src/generateHtml')
 
-//Portfolio questions
+//Manager questions
 const managerQuestions = () => {
+    console.log(`
+=================
+Create a Team Profolio!!
+=================
+    `)
     return inquirer.prompt([
         {
             type: 'input',
@@ -69,34 +73,9 @@ const managerQuestions = () => {
     employees.push(manager)
     typeQuestion()
     })
-} 
-
-const typeQuestion = (data) => {
-    return inquirer.prompt([
-        {
-            type: 'list',
-            name: 'addToTeam',
-            message: 'Would you like to add a Engineer or Intern?',
-            choices: [
-                'Engineer',
-                'Intern',
-                'no more'
-                ]
-        }
-    ]).then(typeData => {
-        if (typeData.addToTeam === 'Engineer') {
-            engQuestions()
-        } else if (typeData.addToTeam === 'Intern') {
-            intQuestion()
-        } else {
-        fs.writeFile('./dist/index.html', generateHTML(data), err => {
-            if (err) throw err;
-            console.log('Your HTML file has been created in the "dist" folder')
-        });
-    }
-    })
 }
 
+//Questions for an Engineer
 const engQuestions = (typeData) => {
     return inquirer.prompt([
         {
@@ -160,6 +139,7 @@ const engQuestions = (typeData) => {
     })
 }
 
+//Questions for an Intern
 const intQuestion = (typeData) => {
     return inquirer.prompt([
         {
@@ -223,47 +203,36 @@ const intQuestion = (typeData) => {
     })
 }
 
-
-
-
-
-
-
-
-
-
-const employees = []
-
-
-// function to initialize program
-const init = () => {
-    console.log(`
-=================
-Create a Team Profolio!!
-=================
-`);
-managerQuestions()
-    .then(data => {
-        if (data.addToTeam === 'Engineer') {
+//Question to add a Engineer or an Intern
+const typeQuestion = (data) => {
+    return inquirer.prompt([
+        {
+            type: 'list',
+            name: 'addToTeam',
+            message: 'Would you like to add a Engineer or Intern?',
+            choices: [
+                'Engineer',
+                'Intern',
+                'no more'
+                ]
+        }
+    ]).then(typeData => {
+        if (typeData.addToTeam === 'Engineer') {
             engQuestions()
-                .then(engData => {
-                    const engineer = new Engineer(data.name, data.id, data.email, engData.github)
-                    employees.push(engineer)
-                    init()
-                })
-
-            
-
-        } else if (data.addToTeam === 'Intern') {
-
-        } else {
-        fs.writeFile('./dist/index.html', generateHTML(data), err => {
-            if (err) throw err;
-            console.log('Your HTML file has been created in the "dist" folder')
-        });
-    }
+        } else if (typeData.addToTeam === 'Intern') {
+            intQuestion()
+        }
     })
 }
 
-// function call to initialize program
-init();
+
+
+
+//Array containing the employees made
+const employees = []
+
+// // function call to initialize program
+managerQuestions()
+  .then(employees => {
+    return (employees);
+  })
