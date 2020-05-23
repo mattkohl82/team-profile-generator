@@ -6,6 +6,9 @@ const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const generateHTML = require('./src/generateHtml')
 
+
+const employees = []
+
 //Manager questions
 const managerQuestions = () => {
     console.log(`
@@ -76,7 +79,7 @@ Create a Team Profolio!!
 }
 
 //Questions for an Engineer
-const engQuestions = (typeData) => {
+const engQuestions = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -132,15 +135,15 @@ const engQuestions = (typeData) => {
               }
         }
     ])
-    .then(engData => {
-        const engineer = new Engineer(engData.name, engData.id, engData.email, engData.github)
+    .then(data => {
+        const engineer = new Engineer(data.name, data.id, data.email, data.github)
         employees.push(engineer)
         typeQuestion()
     })
 }
 
 //Questions for an Intern
-const intQuestion = (typeData) => {
+const intQuestion = () => {
     return inquirer.prompt([
         {
             type: 'input',
@@ -197,7 +200,7 @@ const intQuestion = (typeData) => {
         }
     ])
     .then(intData => {
-        const intern = new Intern(intData.name, intData.id, intData.email, intData.school)
+        const intern = new Intern(data.name, data.id, data.email, data.school)
         employees.push(intern)
         typeQuestion()
     })
@@ -216,23 +219,31 @@ const typeQuestion = (data) => {
                 'no more'
                 ]
         }
-    ]).then(typeData => {
-        if (typeData.addToTeam === 'Engineer') {
+    ]).then(data => {
+        if (data.addToTeam === 'Engineer') {
             engQuestions()
-        } else if (typeData.addToTeam === 'Intern') {
+        } else if (data.addToTeam === 'Intern') {
             intQuestion()
         }
-    })
+        fs.writeFile('./dist/index.html', generateHTML(data), err => {
+              if (err) throw err;
+              console.log('Your index.html has been created in the "dist" folder')
+          });
+        })
 }
 
+// function call to initialize program
+const init = () => {
+  console.log(`
+==========================
+Lets make a Team Portfolio
+==========================
+`);
 
-
-
-//Array containing the employees made
-const employees = []
-
-// // function call to initialize program
 managerQuestions()
-  .then(employees => {
-    return (employees);
-  })
+}
+
+// function call to initialize program
+init();
+
+
