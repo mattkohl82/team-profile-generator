@@ -25,15 +25,10 @@
 ```
 `npm init`
   
-`npm install inquirer`
-
-`npm install email-validator`
+`npm install inquirer`  
 
 `npm install jest --save-dev`
 ```
-
-
-          
 ## Usage
 ### A Project manager will be able to use this application to create a quick and easy place to store all the Team Members information. Everything from name, ID, and will be for all memebers with various others for specific job titled members.
           
@@ -48,7 +43,7 @@
 ### mattkohl82@gmail.com for ✉️ email 
 
 ### Below is a link to the GitHub repository   
-[README Generator Repo](https://github.com/mattkohl82/team-profile-generator)  
+[Team Profile Generator](https://github.com/mattkohl82/team-profile-generator)  
 
 ### Below is a link to a video of me demostrating the application  
 [Link to the Raw Github Version]()  
