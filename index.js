@@ -59,7 +59,7 @@ Create a Team Profolio!!
         },
         {
             type: 'input',
-            name: 'office',
+            name: 'number',
             message: 'What is the Project Managers office number?',
             validate: officeInput => {
                 if (officeInput) {
@@ -199,7 +199,7 @@ const intQuestion = () => {
               }
         }
     ])
-    .then(intData => {
+    .then(data => {
         const intern = new Intern(data.name, data.id, data.email, data.school)
         employees.push(intern)
         typeQuestion()
@@ -207,7 +207,7 @@ const intQuestion = () => {
 }
 
 //Question to add a Engineer or an Intern
-const typeQuestion = (data) => {
+const typeQuestion = () => {
     return inquirer.prompt([
         {
             type: 'list',
@@ -219,17 +219,23 @@ const typeQuestion = (data) => {
                 'no more'
                 ]
         }
-    ]).then(data => {
-        if (data.addToTeam === 'Engineer') {
-            engQuestions()
-        } else if (data.addToTeam === 'Intern') {
-            intQuestion()
+      ]).then(data => {
+        switch(data.addToTeam) {
+            case 'Engineer':
+                engQuestions();
+                break;
+            case 'Intern':
+                intQuestion();
+                break;
+            case 'I don\'t want to add any other members':
+                return console.table(employees)
+                //generateHTML(employees);
+                
+                break;
+            //default: 
+                //generateHTML);
         }
-        fs.writeFile('./dist/index.html', generateHTML(data), err => {
-              if (err) throw err;
-              console.log('Your index.html has been created in the "dist" folder')
-          });
-        })
+    });
 }
 
 // function call to initialize program
@@ -239,11 +245,9 @@ const init = () => {
 Lets make a Team Portfolio
 ==========================
 `);
-
 managerQuestions()
 }
 
 // function call to initialize program
 init();
-
 
