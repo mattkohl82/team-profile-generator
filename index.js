@@ -4,7 +4,7 @@ const inquirer = require("inquirer");
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
-const generateHTML = require('./src/generateHtml')
+//const generateHTML = require('./src/generateHtml')
 
 
 const employees = []
@@ -228,14 +228,39 @@ const typeQuestion = () => {
                 intQuestion();
                 break;
             case 'I don\'t want to add any other members':
-                return console.table(employees)
-                //generateHTML(employees);
-                
-                break;
+                generateHTML(employees);
             //default: 
                 //generateHTML);
         }
     });
+}
+
+const generateHTML = (employees) => {
+  for (let i = 0; i < employees.length; i++) {
+      return `
+      <!DOCTYPE html> 
+<html lang="en"> 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Team</title>
+</head>
+<body>
+      <h1> ${ this.name } </h1>
+      <h1> ${ this.title } </h1>
+      <h1> ${ this.id } </h1>
+      <h1> ${ this.school } </h1>
+      <h1> ${ this.github } </h1>
+      <h1> ${ this.number } </h1>
+      <h1> ${ this.email } </h1>
+  </body>
+      `
+    }
+  fs.writeFile('./dist/index.html', generateHTML(data), err => {
+          if (err) throw err;
+          console.log('Team Profile created! Check out index.html in dist directory to see it!')
+  })
 }
 
 // function call to initialize program
