@@ -45,9 +45,13 @@
 ### Below is a link to the GitHub repository   
 [Team Profile Generator](https://github.com/mattkohl82/team-profile-generator)  
 
-### Below is a link to a video of me demostrating the application  
-[Link to the Raw Github Version]()  
-[Youtube version](https://youtu.be/csGkkxbtw3Y)
+### Below is a link to a video of me demostrating the application 
+![Tests Run and Passed](./src/demo.gif) 
+  
+
+[Youtube version](https://youtu.be/_ol9HeeB6to)  
+[Link to the Raw Github Version](https://github.com/mattkohl82/team-profile-generator/blob/master/src/demo.webm)  
+
 
 
 
