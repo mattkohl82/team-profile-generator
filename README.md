@@ -30,7 +30,7 @@
 `npm install jest --save-dev`
 ```
 ## Usage
-### A Project manager will be able to use this application to create a quick and easy place to store all the Team Members information. Everything from name, ID, and will be for all memebers with various others for specific job titled members.
+### A Project manager will be able to use this application to create a quick and easy place to store all the Team Members information. Everything from name, ID, and Email will be for all memebers with various others for specific job titled members.
           
 ## Tests
 ```
