@@ -16,10 +16,11 @@
 - [Installation](#install)
 - [Usage](#usage)
 - [Tests](#tests)
+- [Demo and Repos](#Demo-and-Repo)
 - [Questions](#questions)
 
 ## Description
-### This node.js application that will help you build a quick portfolio for you and your team.
+This node.js application that will help you build a quick portfolio for you and your team.
 
 ## Install
 ```
@@ -30,33 +31,24 @@
 `npm install jest --save-dev`
 ```
 ## Usage
-### A Project manager will be able to use this application to create a quick and easy place to store all the Team Members information. Everything from name, ID, and Email will be for all memebers with various others for specific job titled members.
+A Project manager will be able to use this application to create a quick and easy place to store all the Team Members information. Everything from name, ID, and Email will be for all memebers with various others for specific job titled members.
           
-## Tests
+## Tests  
 ```
 `npm run test`
-```
-### When run it will test the four Classes: Employee, Manager, Engineer, and Intern.
+```  
+
+When run it will test the four Classes: Employee, Manager, Engineer, and Intern.
+
+## Demo and Repo
+
+### Below is a link to the GitHub repository   
+[Team Profile Generator](https://github.com/mattkohl82/team-profile-generator)  
+
+### Below is a link to a video of me demostrating the application
+[Youtube version](https://youtu.be/_ol9HeeB6to) 
 
 ## Questions
 ### [Mattkohl82 for GitHub](https://github.com/Mattkohl82)  
 ### mattkohl82@gmail.com for ✉️ email 
 
-### Below is a link to the GitHub repository   
-[Team Profile Generator](https://github.com/mattkohl82/team-profile-generator)  
-
-### Below is a link to a video of me demostrating the application 
-![Tests Run and Passed](./src/demo.gif) 
-  
-
-[Youtube version](https://youtu.be/_ol9HeeB6to)  
-[Link to the Raw Github Version](https://github.com/mattkohl82/team-profile-generator/blob/master/src/demo.webm)  
-
-
-
-
-
-### Belowe are two screen shots of the code  
-
-![Tests Run and Passed](./src/screenshot1.jpg) 
-![Inquirer Questions Answered](./src/screenshot1.jpg)
